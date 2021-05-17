@@ -346,7 +346,7 @@ module.Attributes &= ~ModuleAttributes.StrongNameSigned;
 ```
 
 
-## 使用者
+## 用户
 
 我们很高兴地注意到以下项目和产品正在使用 `Mono.Cecil`。请与我们联系以改进或更正此列表。
 
@@ -370,7 +370,7 @@ module.Attributes &= ~ModuleAttributes.StrongNameSigned;
 
 **开发环境**
 
-+ [SharpDevelop](http://www.icsharpcode.net/OpenSource/SD/): `#develop` (`SharpDevelop` 的缩写) 是一个免费的 `IDE`，用于微软 `.NET` 平台上的 `C#`、`VB.NET`和 `Boo` 项目。
+  + [SharpDevelop](http://www.icsharpcode.net/OpenSource/SD/): `#develop` (`SharpDevelop` 的缩写) 是一个免费的 `IDE`，用于微软 `.NET` 平台上的 `C#`、`VB.NET`和 `Boo` 项目。
 + [MonoDevelop](http://www.monodevelop.com/): `MonoDevelop` 是免费的 `GNOME` `IDE`，主要用于 `C#` 和其他 `.NET` 语言。
 + [MonoUML](http://www.monouml.org/doku.php/reverseengineering-cil): `CIL` 逆向工程插件。
 + [Reflexil](http://reflexil.net/): `.NET Reflector` 的插件，允许您修改程序集。
@@ -409,7 +409,56 @@ module.Attributes &= ~ModuleAttributes.StrongNameSigned;
 + [PostCrap](http://postcrap.codeplex.com/): `PostCrap` 是一个轻量级的基于特性实现切面注入的 `.NET` 后编译器。
 + [NSurgeon](http://nsurgeon.codeplex.com/): 一个静态的切面编织工具。
 
+**处理程序集**
 
++ [Mono Linker](http://mono-project.com/Linker): 链接器是一种工具，可以仅提供一套程序运行可能需要的尽可能少的函数集，而不是完整的库。
++ [Mono Merge](http://github.com/mono/cecil/tree/master/merge): 合并一组程序集为一个程序的工具。
++ [mono-cil-strip](http://github.com/mono/mono/tree/master/mcs/tools/cil-strip): 在对程序集进行 `AOT` 后减少其字节码的工具，以减少二进制代码。
++ [ExePack](http://exepack.codeplex.com/): `Exepack.NET` 是 `.NET Framework` 的可执行文件压缩工具。
++ [IL-Repack](http://code.google.com/p/il-repack/): `IL-Repack` 是 `ILMerge` 的克隆分支。
++ [CInject](http://codeinject.codeplex.com/): 允许将代码注入到任何托管程序集中，而无需反汇编和重新编译。它带有动态日志记录，性能和运行时智能注入器，并包括 [快速入门与示例](http://www.ganshani.com/applications/cinject-code-injector/) 。
++ [Fody](https://github.com/Fody/Home/): `Fody` 提供了作为 `Visual Studio` 构建的一部分来编写程序集处理的工具。
+
+**数据库相关**
+
++ [db4o](http://www.db4o.com/): `.NET` 和 `Mono` 的本地数据持久化解决方案。
++ [USS](http://uss.codeplex.com/): 通用存储服务 (`USS`) 是可扩展的编程模型和运行时组件，用于在 `.NET` 平台上构建数据感知的解决方案。
+
+**混淆器**
+
++ [Obfuscar](https://obfuscar.codeplex.com/): `Obfuscar` 是 `.NET` 程序集的基本混淆器。
++ [SharpObfuscator](http://codeplex.com/SharpObfuscator): 它是一款软件保护工具，旨在帮助 `.NET` 开发人员有效地保护其软件。
++ [Confuser](http://confuser.codeplex.com/): `Confuser` 是 `.NET` 的混淆器。
+
+**其它**
+
++ [mdb/sdb](http://mono-project.com/Debugger): `Mono` 托管调试工具。
++ [WSPBuilder](http://www.codeplex.com/wspbuilder): 用于 `WSS 3.0` 和 `MOSS 2007` 的 `SharePoint` 解决方案包 (`WSP`) 创建工具
++ [XAML Power Toys](http://karlshifflett.wordpress.com/xaml-power-toys/): `XAML Power Toys` 是一款可用于 `Visual Studio 2008 SP1` 与`Visual Studio 2010` 的插件，安装后可以使用 `XAML` 编辑器，为 `WPF` 和 `Silverlight` 开发人员提供支持。
++ [PowerShell Community Extensions](http://pscx.codeplex.com/): `PowerShell` 社区扩展 (`PSCX`) 旨在为社区成员提供受关注的 `Windows PowerShell` 的命令行工具、提供器、别名、过滤器、函数和脚本。
++ [Community Kit for SharePoint](http://cks.codeplex.com/): `SharePoint` 社区工具包是一系列最佳实践、模板、Web 组件、工具和源代码，几乎任何人都可以为有共同兴趣的人群创建基于 `SharePoint` 技术的社区网站。
++ [Cecilifier](https://github.com/adrianoc/cecilifier): 旨在使学习 `Mono.Cecil` 更加容易的工具。
+  
+### 闭源
+
+**编译器**
+
++ [MonoTouch](http://monotouch.net/): 将 `CIL` 编译为本地代码的 `mtouch` 工具使用 `Cecil` 和 `Mono.Linker` 来减小应用程序的大小。
++ [Mono for Android](http://mono-android.net/): `Mandroid` 工具使用 `Cecil` 和 `Mono.Linker` 来减小应用程序的大小。
++ [Oxygene](http://remobjects.com/oxygene.aspx): `RemObjects` 的 `Oxygene` 是用于 `.NET` 和 `Mono` 的 `Pascal` 编译器。
++ [Mainsoft CIL to Java bytecode](http://dev.mainsoft.com/Default.aspx?tabid=130#MS_IL_to_Java_ByteCode_Compilation%20compiler)
+
+**代码质量、度量与代码浏览器**
+
++ [NDepend](http://www.ndepend.com/)
++ [Structure101](http://www.coverity.com/products/)
++ [Nitriq](http://www.nitriq.com/): `Nitriq` 代码分析工具可帮助 `.NET` 开发人员执行全面的代码审查。
++ [Structure101](http://www.headwaysoftware.com/products/?code=Structure101): `.NET` 的软件架构重构和管理。
++ [Kalistick](http://www.kalistick.fr/)
++ [Exception Hunter](http://www.red-gate.com/products/Exception_Hunter/index.htm)
++ [Telerik JustCode](http://www.telerik.com/products/justcode.aspx)
++ [NCrunch](http://www.ncrunch.net/): `NCrunch` 是用于 `Visual Studio .NET` 的一款自动化并行连续测试工具。
++ [BugAid](http://www.bugaidsoftware.com/): `BugAid` 是 `Visual Studio` 的扩展，可以在调试 `C#` 代码时为您提供帮助。
 
 
 > 参考：

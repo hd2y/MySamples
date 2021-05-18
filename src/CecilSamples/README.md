@@ -460,6 +460,49 @@ module.Attributes &= ~ModuleAttributes.StrongNameSigned;
 + [NCrunch](http://www.ncrunch.net/): `NCrunch` 是用于 `Visual Studio .NET` 的一款自动化并行连续测试工具。
 + [BugAid](http://www.bugaidsoftware.com/): `BugAid` 是 `Visual Studio` 的扩展，可以在调试 `C#` 代码时为您提供帮助。
 
+**反编译工具**
+
++ [Reflector Pro](http://www.red-gate.com/products/reflector/index.htm)
++ [Telerik JustDecompile](http://www.telerik.com/products/decompiling.aspx)
++ [CodeReflect](http://www.devextras.com/decompiler/)
+
+**探查器**
+
++ [NHProf](http://nhprof.com/): `NHibernate` 的探查器。
++ [L2SProf](http://l2sprof.com/): `LINQ to SQL` 的探查器。
++ [EFProf](http://efprof.com/): `Entity Framework` 的探查器。
++ [EQATEC Profiler](http://www.eqatec.com/tools/profiler): 适用于 `.NET Framework` 和 `.NET Compact Framework` 应用程序的免费代码探查器。
++ [.NET Perf](http://www.dotnetperf.com/): 免费代码探查器。
+
+**对象关系映射**
+
++ [Telerik OpenAccess](http://www.telerik.com/products/orm.aspx): `Telerik OpenAccess` 是企业级 `.NET ORM`，它在桌面和 Web 应用程序中作为数据访问管道。
+
+**知识工程**
+
++ [Pacelab Suite](http://www.pace.de/en/group.php?myid=2&subid=0&mydataid=5): 知识工程平台，用于多学科产品建模、设计分析、验证和优化。
+
+**混淆器**
+
++ [ArmDot](https://www.armdot.com/): 具有软件许可 API 的 `.NET` 程序防护工具
++ [CodeWall](http://www.codewall.com/): 商用混淆器。
++ [DeepSea Obfuscator](http://www.deepseaobfuscator.com/): 商用混淆器。
++ [Eazfuscator.NET](http://www.foss.kharkov.ua/g1/projects/eazfuscator/dotnet/): `.NET` 平台免费混淆器。
++ [{smartassembly}](http://www.smartassembly.com/): 商用混淆器。
++ [XapOptimizer](http://www.componentone.com/SuperProducts/XapOptimizer/): 减小 `Silverlight` `xap` 文件的尺寸。
++ [XHEO DeployLX](http://xheo.com/products/code-protection): 商用混淆器。
+
+**处理程序集**
+
++ [Telerik AssemblyMinifier](http://www.telerik.com/products/silverlight/getting-started/assembly-minifier.aspx): 减小 `Silverlight` `zap` 文件的尺寸。
++ [GPU.NET](https://github.com/tidepowerd/GPU.NET-Example-Projects): 为程序集装配特定代码在 `GPU` 上。
+
+**开发环境**
+
++ [Unity](http://www.unity3d.com/): `Unity` 是一个游戏开发生态系统。`Unity` 当前使用 `Mono` 作为脚本引擎，因此经常执行 `.NET` 二进制文件的分析和修改，所有这些操作都由 `Cecil` 完成。
+
+文中的商标和品牌所有权归各所有者。
+
 
 > 参考：
 > + GitHub: https://github.com/jbevain/cecil

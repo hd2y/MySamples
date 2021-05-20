@@ -36,10 +36,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{67C5CB8D-9936-4F14-A2DE-A1B188538503}"
 ProjectSection(SolutionItems) = preProject
 	images\Anotar.png = images\Anotar.png
-	images\Fody.png = images\Fody.png
 	images\AsyncErrorHandler.png = images\AsyncErrorHandler.png
 	images\AutoProperties.png = images\AutoProperties.png
 	images\BasicFodyAddin.png = images\BasicFodyAddin.png
+	images\g-research.svg = images\g-research.svg
+	images\particular.svg = images\particular.svg
+	images\postsharp.png = images\postsharp.png
+	images\Fody.png = images\Fody.png
 EndProjectSection
 EndProject
 Global

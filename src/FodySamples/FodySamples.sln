@@ -22,6 +22,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicFodyAddinSample", "Bas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicFodyAddin.Fody", "BasicFodyAddin.Fody\BasicFodyAddin.Fody.csproj", "{8C2D0B06-1621-49CE-9EAD-60DBED026CCA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EDB93642-6EBB-401E-B107-C44669937AE8}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+	Anotar.md = Anotar.md
+	AsyncErrorHandler.md = AsyncErrorHandler.md
+	AutoProperties.md = AutoProperties.md
+	BasicFodyAddin.md = BasicFodyAddin.md
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9A253B22-D2BF-4DA3-BD0C-1D8D74CC52B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{67C5CB8D-9936-4F14-A2DE-A1B188538503}"
+ProjectSection(SolutionItems) = preProject
+	images\Anotar.png = images\Anotar.png
+	images\Fody.png = images\Fody.png
+	images\AsyncErrorHandler.png = images\AsyncErrorHandler.png
+	images\AutoProperties.png = images\AutoProperties.png
+	images\BasicFodyAddin.png = images\BasicFodyAddin.png
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,5 +85,9 @@ Global
 		{D99E0A56-F05B-4E51-A104-7F793678FD31} = {1D967D1F-A34B-409A-A9A6-90AE5DE16BBE}
 		{7D07CB07-5EF8-4AF9-9436-6C5FB94497E2} = {6F8FD51D-D531-4B0F-944D-F34C777ECE04}
 		{8C2D0B06-1621-49CE-9EAD-60DBED026CCA} = {6F8FD51D-D531-4B0F-944D-F34C777ECE04}
+		{011EFA9C-C484-4114-83E4-B5378679EE68} = {9A253B22-D2BF-4DA3-BD0C-1D8D74CC52B9}
+		{C9822A23-589A-41C1-84E4-24AEC53E8CEC} = {9A253B22-D2BF-4DA3-BD0C-1D8D74CC52B9}
+		{1D967D1F-A34B-409A-A9A6-90AE5DE16BBE} = {9A253B22-D2BF-4DA3-BD0C-1D8D74CC52B9}
+		{6F8FD51D-D531-4B0F-944D-F34C777ECE04} = {9A253B22-D2BF-4DA3-BD0C-1D8D74CC52B9}
 	EndGlobalSection
 EndGlobal

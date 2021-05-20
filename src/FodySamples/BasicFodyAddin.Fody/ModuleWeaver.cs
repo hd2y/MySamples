@@ -21,7 +21,6 @@ namespace BasicFodyAddin.Fody
                             x.Parameters.Count == 1 &&
                             x.Parameters[0].ParameterType.Name == "RuntimeMethodHandle");
             getMethodFromHandle = ModuleDefinition.ImportReference(getMethodFromHandle);
-            Instruction
         }
 
         public override IEnumerable<string> GetAssembliesForScanning()

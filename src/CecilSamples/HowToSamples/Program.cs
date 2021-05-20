@@ -12,6 +12,66 @@ namespace HowToSamples
     {
         private static void Main(string[] args)
         {
+            ShowDiff(typeof(AssemblyDefinition), typeof(Assembly));
+            ShowDiff(typeof(AssemblyNameDefinition), typeof(AssemblyName));
+            ShowDiff(typeof(ModuleDefinition), typeof(Module));
+            ShowDiff(typeof(TypeDefinition), typeof(Type));
+            ShowDiff(typeof(PropertyDefinition), typeof(PropertyInfo));
+            ShowDiff(typeof(FieldDefinition), typeof(FieldInfo));
+            ShowDiff(typeof(MethodDefinition), typeof(MethodInfo));
+            ShowDiff(typeof(ParameterDefinition), typeof(ParameterInfo));
+            ShowDiff(typeof(EventDefinition), typeof(EventInfo));
+        }
+
+        private static void ShowDiff(Type cecil, Type system)
+        {
+            Console.Write($"--> Diff between ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("{0} ", cecil.FullName);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("{0} ", system.FullName);
+            Console.ResetColor();
+            Console.WriteLine();
+
+            var cecilProperties = cecil.GetProperties().Where(a => a.CanRead && !a.IsSpecialName).Select(a => a.Name)
+                .ToList();
+            var systemProperties = system.GetProperties().Where(a => a.CanRead && !a.IsSpecialName).Select(a => a.Name)
+                .ToList();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("Properties: ");
+            ShowDiff(cecilProperties, systemProperties);
+            Console.WriteLine();
+
+
+            var cecilMethods = cecil.GetMethods().Where(a => a.IsPublic && !a.IsSpecialName).Select(a => a.Name)
+                .ToList();
+            var systemMethods = system.GetMethods().Where(a => a.IsPublic && !a.IsSpecialName).Select(a => a.Name)
+                .ToList();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("Methods: ");
+            ShowDiff(cecilMethods, systemMethods);
+
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+        private static void ShowDiff(List<string> cecilItems, List<string> systemItems)
+        {
+            var allItems = cecilItems.Union(systemItems);
+            foreach (var item in allItems)
+            {
+                Console.ForegroundColor = cecilItems.Contains(item) && systemItems.Contains(item) ? ConsoleColor.White :
+                    cecilItems.Contains(item) ? ConsoleColor.Green : ConsoleColor.Red;
+                var diffType = cecilItems.Contains(item) && systemItems.Contains(item) ? "" :
+                    cecilItems.Contains(item) ? "+" : "-";
+                Console.Write("{0}{1} ", item, diffType);
+            }
+
+            Console.ResetColor();
+        }
+
+        private static void ShowExec()
+        {
             var execAssembly = CecilHowTo.GetExecutingAssembly();
             Console.WriteLine("========== {0} ==========", nameof(AssemblyDefinition));
             Console.WriteLine("{0}: {1}", nameof(execAssembly.Name), execAssembly.Name);
@@ -287,7 +347,8 @@ namespace HowToSamples
                             Console.WriteLine("{0}: {1}", nameof(parameter.IsOut), parameter.IsOut);
                             Console.WriteLine("{0}: {1}", nameof(parameter.IsReturnValue), parameter.IsReturnValue);
                             Console.WriteLine("{0}: {1}", nameof(parameter.HasConstant), parameter.HasConstant);
-                            Console.WriteLine("{0}: {1}", nameof(parameter.HasCustomAttributes), parameter.HasCustomAttributes);
+                            Console.WriteLine("{0}: {1}", nameof(parameter.HasCustomAttributes),
+                                parameter.HasCustomAttributes);
                             Console.WriteLine("{0}: {1}", nameof(parameter.HasDefault), parameter.HasDefault);
                             Console.WriteLine("{0}: {1}", nameof(parameter.HasMarshalInfo), parameter.HasMarshalInfo);
                             Console.WriteLine("{0}: {1}", nameof(parameter.HasFieldMarshal), parameter.HasFieldMarshal);

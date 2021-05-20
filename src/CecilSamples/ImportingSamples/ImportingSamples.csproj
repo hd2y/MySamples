@@ -13,7 +13,7 @@
     <MyPublishFile Include="$(ProjectDir)..\HowToLib\bin\Debug\netstandard2.0\*.*" />
   </ItemGroup>
   
-  <Target Name="Copy">
+  <Target Name="Copy" BeforeTargets="Build">
     <Exec Command="dotnet build $(ProjectDir)..\HowToLib\HowToLib.csproj" />
     <Copy SourceFiles="@(MyPublishFile)" DestinationFolder="$(ProjectDir)$(OutDir)" SkipUnchangedFiles="false" />
   </Target>

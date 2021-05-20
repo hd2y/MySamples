@@ -1,1 +1,1 @@
-dotnet msbuild -t:build,Copy,run ImportingSamples.csproj
+dotnet run

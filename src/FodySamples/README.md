@@ -1,6 +1,6 @@
 # <img src="./images/Fody.png" height="28px"> Fody: 编织 `.NET` 程序集的可扩展工具。
 
-将修改程序集 IL 代码作为编译项目的一部分工作需要大量的衔接代码，这些衔接代码涉及 `MSBuild` 与 `Visual Studio API` 相关的知识，而 [Fody](https://github.com/Fody/Fody) 尝试通过可扩展的加载模型消除这些衔接代码。
+将修改程序集 IL 代码作为编译项目的一部分需要大量的衔接代码，这些衔接代码涉及 `MSBuild` 和 `Visual Studio API` 相关的知识，而 [Fody](https://github.com/Fody/Fody) 尝试通过可扩展的加载模型消除这些衔接代码。
 
 这是 Fody 项目核心引擎代码库的说明，更多关于 Fody 项目信息可以到 [Home](https://github.com/Fody/Home) 项目查看。
 
@@ -50,11 +50,11 @@
 
 + [许可与用户常见问题](https://github.com/Fody/Home/tree/master/pages/licensing-patron-faq.md)<br>
   **希望所有使用 `Fody` 的开发者可以 [成为 OpenCollective 的资助者](https://opencollective.com/fody/contribute/patron-3059)。** 更多信息可以阅读 [许可 / 赞助 常见问题与解答](https://github.com/Fody/Home/blob/master/pages/licensing-patron-faq.md) 进行了解。
-+ [用途](https://github.com/Fody/Home/tree/master/pages/usage.md)<br>
++ [用途](./Usage.md)<br>
   使用 `Fody` 的简介。
-+ [配置](https://github.com/Fody/Home/tree/master/pages/configuration.md)<br>
++ [配置](./Configuration.md)<br>
   所有关于 `Fody` 的配置项信息。
-+ [插件发现](https://github.com/Fody/Home/tree/master/pages/addin-discovery.md)<br>
++ [插件发现](./Addin%20Discovery.md)<br>
   插件如何被识别。
 + [Fody 编织工具与插件列表](https://github.com/Fody/Home/tree/master/pages/addins.md)
 + [更新日志](https://github.com/Fody/Fody/milestones?state=closed)
@@ -82,7 +82,7 @@
 
 ## 贡献者
 
-这个项目的存在要归功于所有的贡献者。 [[贡献者](https://github.com/Fody/Fody/blob/master/CONTRIBUTING.md)]
+这个项目的存在至今要归功于所有参与项目的贡献者。 [[贡献者](https://github.com/Fody/Fody/blob/master/CONTRIBUTING.md)]
 
 <a href="https://github.com/Fody/Fody/graphs/contributors"><img src="https://opencollective.com/fody/contributors.svg?width=890&button=false" /></a>
 

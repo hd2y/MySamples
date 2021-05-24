@@ -29,6 +29,7 @@ ProjectSection(SolutionItems) = preProject
 	AsyncErrorHandler.md = AsyncErrorHandler.md
 	AutoProperties.md = AutoProperties.md
 	BasicFodyAddin.md = BasicFodyAddin.md
+	Addins.md = Addins.md
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9A253B22-D2BF-4DA3-BD0C-1D8D74CC52B9}"

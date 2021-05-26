@@ -50,3 +50,47 @@
 + [WeakEvents](https://github.com/adbancroft/WeakEvents.Fody) 通过在编译时进行代码编织以及使用支持的运行时库自动发布弱事件。
 + [With](https://github.com/mikhailshilkov/With.Fody) 一个用于返回修改了一个属性的不可变对象副本的方法。
 
+
+## 不再维护
+
+下面的项目不再维护，如果想取得所有权可以在具体项目下提 `issue`。
+
++ [ArraySlice](https://github.com/Codealike/arrayslice) `ArraySlice` 允许在不影响性能的情况下构建共享内存数组视图。它使用 `IL` 操作来提供性能最高的实现。
++ [AssertMessage](https://github.com/Fody/AssertMessage) 从源代码生成 `message` 并将其添加到断言中。
++ [AutoDependencyProperty](http://blog.angeloflogic.com/2014/12/no-more-dependencyproperty-with.html) 从 `C#` 自动属性生成 `WPF` `DependencyProperty` 样板文件。
++ [AutoLazy](https://github.com/bcuff/AutoLazy) 自动在指定的属性和方法上实施双重检查锁定的单例模式。
++ [Bindables](https://github.com/yusuf-gunaydin/Bindables) 将自动属性转换为 `WPF` 依赖项或附加属性。允许指定选项，定义只读属性以及调用属性更改的方法。
++ [Cauldron](https://github.com/Capgemini/Cauldron) 提供方法、属性和字段的拦截。它还为 `Cauldron.Core` 和 `Cauldron.Activator` 提供了编织器。
++ [Cilador](https://github.com/rileywhite/Cilador) 用 `C#` 编写 [mixins](https://en.wikipedia.org/wiki/Mixin) 以便代码重用而无需继承。
++ [Commander](https://github.com/DamianReeves/Commander.Fody) 为类型注入 `ICommand` 属性和实现以用于 `MVVM` 应用程序。
++ [CryptStr](https://cryptstr.codeplex.com/) 加密 `.NET` 程序集中的字符串内容。
++ [DependencyInjection](https://github.com/jorgehmv/FodyDependencyInjection) 用于 [Ninject](http://www.ninject.org/)、[Autofac](http://autofac.org/) 和 [Spring](http://www.springframework.net/) 的自动依赖项注入。
++ [EmptyStringGuard](https://github.com/thirkcircus/EmptyStringGuard) 在程序集中添加空字符串参数检查。
++ [EnableFaking](https://github.com/philippdolder/EnableFaking.Fody) 允许伪造类型而无需编写接口，仅用于测试目的。
++ [Expose](https://github.com/kedarvaidya/Expose.Fody) 公开类型中的私有成员，并选择性地实现在类中声明的接口字段。
++ [FactoryId](https://github.com/ramoneeza/FactoryId.Fody) 简化了工厂方法模式的实现。
++ [Fielder](https://github.com/fodyarchived/Fielder) 将公共字段转换为公共属性。
++ [Freezable](https://github.com/fodyarchived/Freezable) 实现冻结模式。
++ [Immutable](https://github.com/fodyarchived/Immutable) 创建不可变类型。
++ [Mixins](https://bitbucket.org/skwasiborski/mixins.fody/wiki/Home) `mixin` 是一个提供某些功能的类，该功能可以由子类继承或重用。
++ [Mutable](https://github.com/ndamjan/Mutable.Fody) 它消除了对 `record` 类型使用 `CliMutableAttribute` 的需要，并为联合类型添加了 `equivalent` 功能 (必要时添加属性的设置方法)。
++ [Mvid](https://github.com/hmemcpy/Mvid.Fody) 添加了指定程序集的 `MVID` (模块版本ID) 功能。
++ [NameOf](https://github.com/NickStrupat/NameOf) 提供对编译时字符串的强类型访问，该字符串表示变量、字段、属性、方法、事件、枚举值或类型的名称。
++ [Nancy.ModelPostprocess](https://bitbucket.org/tpluscode/nancy.modelpostprocess) 在路由执行之后但序列化之前修改 `Nancy` 模型。
++ [NObservable](https://github.com/kekekeks/NObservable) 为 `Blazor` 提供类似 `MobX` 的可观察状态管理库。
++ [Padded](https://github.com/Scooletz/Padded) 添加填充以对抗 [False Sharing](https://mechanical-sympathy.blogspot.com/2011/07/false-sharing.html) 问题。
++ [QueryValidator](https://github.com/kamil-mrzyglod/QueryValidator.Fody) 在编译期间验证数据库查询。
++ [RemoveReference](https://github.com/icnocop/RemoveReference.Fody) 方便在构建期间删除已编译程序集中的引用。
++ [RomanticWeb](http://romanticweb.net/) 用于 `RomanticWeb` 工具的 `Fody` 编织工具插件。
++ [Scalpel](https://github.com/Fody/Scalpel) 从程序集中剥离测试。
++ [Seal](https://github.com/kamil-mrzyglod/Seal) 默认情况下，将所有非虚拟 (抽象、非密封) 类型标记为密封。
++ [SexyProxy](https://github.com/kswoll/sexy-proxy) 代理生成器，支持异步模式。
++ [Spring](https://github.com/jorgehmv/FodySpring) `Spring` 构造函数配置。
++ [Stamp](https://github.com/304NotModified/Fody.Stamp) 用 `git` 数据标记程序集。
++ [StaticProxy](https://github.com/BrunoJuchli/StaticProxy.Fody) 代理生成器，也用于 `.NET Standard` / `.NET Core` (`.NET Standard 1.0+`)。
++ [Stiletto](https://github.com/benjamin-bader/stiletto) `Stiletto` 控制反转库的编译时静态分析和优化。
++ [Tail](https://github.com/hazzik/Tail.Fody) 将一个方法调用指令添加到递归调用后。
++ [TestFlask](https://github.com/FatihSahin/test-flask) 记录方法参数和响应用于回放、断言和测试。
++ [Unsealed](https://github.com/fodyarchived/Unsealed) 一个取消密封类型 `sealed` 关键字的 `Fody` 编制工具。
++ [Usable](https://github.com/fodyarchived/Usable) 为已创建并实现 [IDisposable](https://docs.microsoft.com/en-us/dotnet/api/system.idisposable) 的局部变量添加 `using` 语句。
++ [YALF](https://github.com/sharpmonkey/YALF) 另一个日志框架 (Yet Another Logging Framework)。

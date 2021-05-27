@@ -1,12 +1,43 @@
-## <img src="./images/Anotar.png" height="28px"> Anotar
+# <img src="./images/Anotar.png" height="28px"> Anotar
+
+[![Gitter 聊天室](https://img.shields.io/gitter/room/fody/fody.svg)](https://gitter.im/Fody/Fody)
 
 [Anotar](https://github.com/Fody/Anotar) 简化日志记录，直接使用静态类而无需创建 `ILogger` / `ILog` 等对象。
 
-### 💖 直接使用 `LogTo` 静态类的方法记录日志
+### 这是一个 [Fody](https://github.com/Fody/Home/) 插件
 
-*你的代码:*
+**It is expected that all developers using Fody either [become a Patron on OpenCollective](https://opencollective.com/fody/contribute/patron-3059), or have a [Tidelift Subscription](https://tidelift.com/subscription/pkg/nuget-fody?utm_source=nuget-fody&utm_medium=referral&utm_campaign=enterprise). [See Licensing/Patron FAQ](https://github.com/Fody/Home/blob/master/pages/licensing-patron-faq.md) for more information.**
 
-```cs
+
+## 支持的日志库
+
++ [Catel](http://www.catelproject.com/)
++ 自定义 (用于自定义的日志记录框架或包)
++ [CommonLogging](http://netcommon.sourceforge.net/)
++ [NLog](http://nlog-project.org/)
++ [NServiceBus](http://particular.net/nservicebus)
++ [Serilog](http://serilog.net/)
++ [Splat](https://github.com/paulcbetts/splat)
+
+
+## 用途
+
+查看 [Fody 用途](https://github.com/Fody/Home/blob/master/pages/usage.md)。
+
+### NuGet 安装
+
+安装 [Anotar.xxx.Fody NuGet 程序包](https://www.nuget.org/packages?q=anotar) 并更新 [Fody NuGet 程序包](https://nuget.org/packages/Fody/):
+
+```powershell
+PM> Install-Package Fody
+PM> Install-Package Anotar.xxx.Fody
+```
+
+`Install-Package Fody` 命令必须执行，因为默认为旧版本并且很可能是有 `BUG` 的版本。
+
+### 你的代码
+
+```csharp
 public class MyClass
 {
     void MyMethod()
@@ -16,10 +47,53 @@ public class MyClass
 }
 ```
 
-*编译后的代码:*
+### 编译后代码
 
-```cs
-// NLog
+#### 使用 Catel
+
+```csharp
+public class MyClass
+{
+    static ILog logger = LogManager.GetLogger(typeof(MyClass));
+
+    void MyMethod()
+    {
+        logger.WriteWithData("Method: 'Void MyMethod()'. Line: ~12. TheMessage", null, LogEvent.Debug);
+    }
+}
+```
+
+#### 使用 CommonLogging
+
+```csharp
+public class MyClass
+{
+    static ILog logger = LoggerManager.GetLogger("MyClass");
+
+    void MyMethod()
+    {
+        logger.Debug("Method: 'Void MyMethod()'. Line: ~12. TheMessage");
+    }
+}
+```
+
+#### 自定义
+
+```csharp
+public class MyClass
+{
+    static ILogger AnotarLogger = LoggerFactory.GetLogger<MyClass>();
+
+    void MyMethod()
+    {
+        AnotarLogger.Debug("Method: 'Void MyMethod()'. Line: ~12. TheMessage");
+    }
+}
+```
+
+#### 使用 NLog
+
+```csharp
 public class MyClass
 {
     static Logger logger = LogManager.GetLogger("MyClass");
@@ -29,8 +103,25 @@ public class MyClass
         logger.Debug("Method: 'Void MyMethod()'. Line: ~12. TheMessage");
     }
 }
+```
 
-// Serilog
+#### 使用 NServiceBus
+
+```csharp
+public class MyClass
+{
+    static ILog logger = LogManager.GetLogger("MyClass");
+
+    void MyMethod()
+    {
+        logger.DebugFormat("Method: 'Void MyMethod()'. Line: ~12. TheMessage");
+    }
+}
+```
+
+#### 使用 Serilog
+
+```csharp
 public class MyClass
 {
     static ILogger logger = Log.ForContext<MyClass>();
@@ -48,15 +139,35 @@ public class MyClass
 }
 ```
 
-> 支持的日志组件：Catel、CommonLogging、NLog、NServiceBus、Serilog、Splat、自定义
+#### 使用 Splat
 
-### 💖 检查日志级别
+```csharp
+public class MyClass
+{
+    static IFullLogger logger = ((ILogManager) Locator.Current.GetService(typeof(ILogManager), null))
+                                .GetLogger(typeof(ClassWithLogging));
 
-`LogTo` 有 `IsLevelEnabled` 可以使用当前日志框架的方案检测日志输出级别。
+    void MyMethod()
+    {
+        logger.Debug("Method: 'Void MyMethod()'. Line: ~12. TheMessage");
+    }
+}
+```
 
-*你的代码:*
+### 其他日志方法的重载
 
-```cs
+其还提供了适用于每个日志框架的警告、信息、错误等方法。
+
+每个方法都提供了 `message`、`params`、`exception` 等参数的重载。
+
+
+## 检查日志级别
+
+`LogTo` 类型具有 `IsLevelEnabled` 用于确定每种日志框架各自的日志输出级别。
+
+### 你的代码
+
+```csharp
 public class MyClass
 {
     void MyMethod()
@@ -69,9 +180,9 @@ public class MyClass
 }
 ```
 
-*编译后的代码:*
+### 编译后的代码
 
-```cs
+```csharp
 public class MyClass
 {
     static Logger logger = LogManager.GetLogger("MyClass");
@@ -86,13 +197,47 @@ public class MyClass
 }
 ```
 
-> 如果输出日志字符串信息会占用大量资源，建议使用 `IsLevelEnabled` 进行检查，简化写法可以使用 `委托` 记录日志，例如 `LogTo.Debug(()=>"TheMessage");`，编译后代码将自动添加 `IsLevelEnabled` 检查。
 
-### 💖 异常日志记录
+## 委托记录日志
 
-*你的代码:*
+`LogTo` 都提供了委托方法的重载，这些方法的参数为 `Func<string>` 而非 `string`。该委托用于需要构造的消息使用大量资源时使用。在编译时，日志记录的语句将被包装在 `IsEnabled` 检查中，以便仅在需要该级别的日志记录时才产生资源消耗。
 
-```cs
+### 你的代码
+
+```csharp
+public class MyClass
+{
+    void MyMethod()
+    { 
+        LogTo.Debug(()=>"TheMessage");
+    }
+}
+```
+
+### 编译后的代码
+
+```csharp
+public class MyClass
+{
+    static Logger logger = LogManager.GetLogger("MyClass");
+
+    void MyMethod()
+    {
+        if (logger.IsDebugEnabled)
+        {
+            Func<string> messageConstructor = () => "TheMessage";
+            logger.Debug("Method: 'Void DebugStringFunc()'. Line: ~58. " + messageConstructor());
+        }
+    }
+}
+```
+
+
+## 记录异常
+
+### 你的代码
+
+```csharp
 [LogToErrorOnException]
 void MyMethod(string param1, int param2)
 {
@@ -100,9 +245,11 @@ void MyMethod(string param1, int param2)
 }
 ```
 
-*编译后的代码:*
+### 编译后的代码
 
-```cs
+#### 使用 NLog
+
+```csharp
 void MyMethod(string param1, int param2)
 {
     try
@@ -120,56 +267,3 @@ void MyMethod(string param1, int param2)
     }
 }
 ```
-
-> 如果不需要额外信息(方法名称与行号)，可以在 `AssemblyInfo.cs` 中设定 `[assembly: LogMinimalMessage]`。
-
-
-### 💖 自定义日志记录工具
-
-如果所使用的日志组件不是以上所提供的 `NLog`、`Serilog` 等，可以自行进行实现。
-
-首先需要定义一个日志工厂类 `LoggerFactory`，其提供一个静态方法 `GetLogger`:
-
-```cs
-public class LoggerFactory
-{
-    public static Logger GetLogger<T>()
-    {
-        return new Logger();
-    }
-}
-```
-
-所返回构造的 `Logger` 实例是负责进行日志记录的类型，其可以实现下列方法：
-
-```cs
-public class Logger
-{
-    public void Trace(string message){}
-    public void Trace(string format, params object[] args){}
-    public void Trace(Exception exception, string format, params object[] args){}
-    public bool IsTraceEnabled { get; private set; }
-    public void Debug(string message){}
-    public void Debug(string format, params object[] args){}
-    public void Debug(Exception exception, string format, params object[] args){}
-    public bool IsDebugEnabled { get; private set; }
-    public void Information(string message){}
-    public void Information(string format, params object[] args){}
-    public void Information(Exception exception, string format, params object[] args){}
-    public bool IsInformationEnabled { get; private set; }
-    public void Warning(string message){}
-    public void Warning(string format, params object[] args){}
-    public void Warning(Exception exception, string format, params object[] args){}
-    public bool IsWarningEnabled { get; private set; }
-    public void Error(string message){}
-    public void Error(string format, params object[] args){}
-    public void Error(Exception exception, string format, params object[] args){}
-    public bool IsErrorEnabled { get; private set; }
-    public void Fatal(string message){}
-    public void Fatal(string format, params object[] args){}
-    public void Fatal(Exception exception, string format, params object[] args){}
-    public bool IsFatalEnabled { get; private set; }
-}
-```
-
-**注意:** 以上方法可以选择需要使用的进行实现，如果没有实现不能调用，否则构建项目可能会出现错误。

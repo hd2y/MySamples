@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>MyBlog.Infrastructure.Core</RootNamespace>
+        <AssemblyName>MyBlog.Infrastructure.Core</AssemblyName>
+        <DocumentationFile>MyBlog.Infrastructure.Core.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>

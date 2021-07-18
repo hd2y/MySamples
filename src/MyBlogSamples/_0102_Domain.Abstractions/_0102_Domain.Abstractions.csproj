@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>MyBlog.Domain.Abstractions</RootNamespace>
+        <AssemblyName>MyBlog.Domain.Abstractions</AssemblyName>
+        <DocumentationFile>MyBlog.Domain.Abstractions.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>

@@ -1,10 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <RootNamespace>MyBlog.Infrastructure.Core</RootNamespace>
         <AssemblyName>MyBlog.Infrastructure.Core</AssemblyName>
-        <DocumentationFile>MyBlog.Infrastructure.Core.xml</DocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\_0102_Domain.Abstractions\_0102_Domain.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DotNetCore.CAP.MySql" Version="5.1.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+    </ItemGroup>
 
 </Project>

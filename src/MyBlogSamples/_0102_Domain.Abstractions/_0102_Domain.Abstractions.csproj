@@ -1,10 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <RootNamespace>MyBlog.Domain.Abstractions</RootNamespace>
         <AssemblyName>MyBlog.Domain.Abstractions</AssemblyName>
-        <DocumentationFile>MyBlog.Domain.Abstractions.xml</DocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="9.0.0" />
+    </ItemGroup>
 
 </Project>

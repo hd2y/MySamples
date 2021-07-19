@@ -1,10 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <RootNamespace>MyBlog.Infrastructure</RootNamespace>
         <AssemblyName>MyBlog.Infrastructure</AssemblyName>
-        <DocumentationFile>MyBlog.Infrastructure.xml</DocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\_0103_Infrastructure.Core\_0103_Infrastructure.Core.csproj" />
+      <ProjectReference Include="..\_0201_Domain\_0201_Domain.csproj" />
+    </ItemGroup>
 
 </Project>

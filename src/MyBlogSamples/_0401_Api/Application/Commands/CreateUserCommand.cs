@@ -1,5 +1,6 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace MyBlog.Api.Application.Commands
 {
@@ -30,31 +31,31 @@ namespace MyBlog.Api.Application.Commands
         /// <summary>
         /// 用户名
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// 昵称
         /// </summary>
-        public string Nickname { get; private set; }
+        public string Nickname { get; set; }
 
         /// <summary>
         /// 邮箱
         /// </summary>
-        public string Email { get; private set; }
+        public string Email { get; set; }
 
         /// <summary>
         /// 手机号
         /// </summary>
-        public string Tel { get; private set; }
+        public string Tel { get; set; }
 
         /// <summary>
         /// 是否管理员 
         /// </summary>
-        public bool IsAdmin { get; private set; }
+        public bool IsAdmin { get; set; }
 
         /// <summary>
         /// 密码
         /// </summary>
-        public string Password { get; private set; }
+        public string Password { get; set; }
     }
 }

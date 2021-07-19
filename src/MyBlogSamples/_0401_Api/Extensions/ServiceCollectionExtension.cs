@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyBlog.Api.Application.IntegrationEvents;
 using MyBlog.Domain.PostAggregate;
 using MyBlog.Infrastructure;
 using MyBlog.Infrastructure.Repositories;
@@ -60,19 +61,22 @@ namespace MyBlog.Api.Extensions
         /// <returns></returns>
         public static IServiceCollection AddEventBus(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddTransient<ISubscriberService, SubscriberService>();
+            // 注册订阅服务
+            services.AddTransient<IUserSubscriberService, UserSubscriberService>();
+            
             services.AddCap(options =>
             {
                 // 存储
                 options.UseMySql(configuration.GetValue<string>("MySql"));
+                // 设置时出现异常，通过构造 BlogContext 获取连接字符串，依赖注入获取 BlogContext 会报错
                 // options.UseEntityFramework<BlogContext>();
 
                 // 传输
-                options.UseInMemoryMessageQueue();
-                // options.UseRabbitMQ(options =>
-                // {
-                //     configuration.GetSection("RabbitMQ").Bind(options);
-                // });
+                // options.UseInMemoryMessageQueue();
+                options.UseRabbitMQ(options =>
+                {
+                    configuration.GetSection("RabbitMQ").Bind(options);
+                });
                 
                 // 监控
                 // options.UseDashboard();

@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MyBlog.Infrastructure.Core.Extensions;
 
+// ReSharper disable MemberCanBeProtected.Global
+
 namespace MyBlog.Infrastructure.Core.Behaviors
 {
     /// <summary>
@@ -67,7 +69,6 @@ namespace MyBlog.Infrastructure.Core.Behaviors
 
                         _logger.LogInformation("----- 提交事务 {TransactionId} ({CommandName})", transaction.TransactionId,
                             typeName);
-
 
                         await _dbContext.CommitTransactionAsync(transaction);
 

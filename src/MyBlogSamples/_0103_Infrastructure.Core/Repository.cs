@@ -167,7 +167,7 @@ namespace MyBlog.Infrastructure.Core
         /// <returns></returns>
         public virtual async Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken = default)
         {
-            return await DbContext.FindAsync<TEntity>(id, cancellationToken);
+            return await DbContext.FindAsync<TEntity>(new object[] {id}, cancellationToken);
         }
     }
 }

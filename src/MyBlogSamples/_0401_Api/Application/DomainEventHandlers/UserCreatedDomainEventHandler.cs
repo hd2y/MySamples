@@ -8,6 +8,9 @@ using MyBlog.Domain.Events;
 
 namespace MyBlog.Api.Application.DomainEventHandlers
 {
+    /// <summary>
+    /// 用户创建领域事件处理程序
+    /// </summary>
     public class UserCreatedDomainEventHandler : IDomainEventHandler<UserCreatedDomainEvent>
     {
         private readonly ICapPublisher _capPublisher;
@@ -29,7 +32,6 @@ namespace MyBlog.Api.Application.DomainEventHandlers
         /// <param name="notification"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public async Task Handle(UserCreatedDomainEvent notification, CancellationToken cancellationToken)
         {
             _logger.LogInformation("添加用户 {UserId}", notification.User.Id);

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServices";
+
+package GrpcServices;
+
+service UserGrpc{
+  rpc CreateUser(CreateUserCommand) returns (CreateUserResult);
+}
+
+message CreateUserCommand{
+  string name = 1;
+  string nickname = 2;
+  bool isAdmin = 3;
+  string password = 4;
+}
+
+message CreateUserResult{
+  int64 userId = 1;
+}

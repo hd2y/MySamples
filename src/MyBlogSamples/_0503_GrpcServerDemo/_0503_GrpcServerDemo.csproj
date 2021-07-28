@@ -11,7 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="Protos/helloworld.proto" GrpcServices="Server" Access="Internal">
-      <SourceUrl>https://github.com/grpc/grpc/blob/master/examples/protos/helloworld.proto</SourceUrl>
+      <SourceUrl>https://raw.githubusercontent.com/grpc/grpc/master/examples/protos/helloworld.proto</SourceUrl>
     </Protobuf>
     <Protobuf Include="Protos\user.proto" GrpcServices="Server" />
   </ItemGroup>

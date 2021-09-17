@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 
 namespace _210917_SerilogDemo
@@ -9,22 +12,17 @@ namespace _210917_SerilogDemo
     {
         static void Main()
         {
-            Console.WriteLine("请输入要测试日志输出方式：\n1.默认\n2.Async");
+            Console.WriteLine("请输入要测试日志输出方式：\n1.默认\n2.Async\n3. 配置文件\n4.Async配置文件");
             var str = Console.ReadLine();
-            if(str == "1") TestSerilogOutput();
-            else if(str == "2") TestAsyncSerilogOutput();
-            Console.ReadKey();
+            if (str == "1") TestSerilogOutput();
+            else if (str == "2") TestAsyncSerilogOutput();
+            else if (str == "3") TestSerilogOutputByConfiguration();
+            else if (str == "4") TestSerilogOutputByAsyncConfiguration();
         }
 
         static void TestSerilogOutput()
         {
-            var list = Enumerable.Range(0, 5000).Select(a => new TestObj
-            {
-                Name1 = $"Name1-{a}",
-                Name2 = $"Name1-{a}",
-                Name3 = $"Name1-{a}",
-                Name4 = $"Name1-{a}",
-            });
+            var list = GetObjList();
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .WriteTo.Console()
@@ -36,7 +34,7 @@ namespace _210917_SerilogDemo
             var watch = new Stopwatch();
             watch.Start();
 
-            Log.Information("Output:{Data}", list);
+            Log.Information("Output:{@Data}", list);
             watch.Stop();
 
             Console.WriteLine($"日志输出，执行后续业务，耗时：{watch.ElapsedMilliseconds}ms");
@@ -45,32 +43,68 @@ namespace _210917_SerilogDemo
 
         static void TestAsyncSerilogOutput()
         {
-            var list = Enumerable.Range(0, 5000).Select(a => new TestObj
-            {
-                Name1 = $"Name1-{a}",
-                Name2 = $"Name1-{a}",
-                Name3 = $"Name1-{a}",
-                Name4 = $"Name1-{a}",
-            });
+            var list = GetObjList();
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
-                .WriteTo.Async(a =>
-                {
-                    a.File("log.txt",
-                        rollingInterval: RollingInterval.Day,
-                        rollOnFileSizeLimit: true);
-                    a.Console();
-                })
+                .WriteTo.Async(
+                    a =>
+                        a.File("log.txt",
+                            rollingInterval: RollingInterval.Day,
+                            rollOnFileSizeLimit: true)
+                )
+                .WriteTo.Async(a => a.Console())
                 .CreateLogger();
 
             var watch = new Stopwatch();
             watch.Start();
 
-            Log.Information("Output:{Data}", list);
+            Log.Information("Output:{@Data}", list);
             watch.Stop();
 
             Console.WriteLine($"异步日志输出，执行后续业务，耗时：{watch.ElapsedMilliseconds}ms");
             Log.CloseAndFlush();
+        }
+
+        static void TestSerilogOutputByConfiguration()
+        {
+            TestSerilogOutputByConfigurationFile("appsettings.Serilog.json");
+        }
+
+        static void TestSerilogOutputByAsyncConfiguration()
+        {
+            TestSerilogOutputByConfigurationFile("appsettings.Async.json");
+        }
+
+        static void TestSerilogOutputByConfigurationFile(string fileName)
+        {
+            var list = GetObjList();
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile(fileName)
+                .Build();
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
+
+            var watch = new Stopwatch();
+            watch.Start();
+
+            Log.Information("Output:{@Data}", list);
+            watch.Stop();
+
+            Console.WriteLine($"异步日志输出，执行后续业务，耗时：{watch.ElapsedMilliseconds}ms");
+            Log.CloseAndFlush();
+        }
+
+        static List<TestObj> GetObjList()
+        {
+            return Enumerable.Range(0, 5000).Select(a => new TestObj
+            {
+                Name1 = $"Name1-{a}",
+                Name2 = $"Name1-{a}",
+                Name3 = $"Name1-{a}",
+                Name4 = $"Name1-{a}",
+            }).ToList();
         }
 
         public class TestObj

@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_21072801_SingletonRun", "_21072801_SingletonRun\_21072801_SingletonRun.csproj", "{ADCB7661-70D2-4A41-9E82-0F32AE06A70B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_210906_Autofac", "_210906_Autofac\_210906_Autofac.csproj", "{A16B8197-0065-402A-A4C0-CAE9D85194D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_210917_SerilogDemo", "_210917_SerilogDemo\_210917_SerilogDemo.csproj", "{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{ADCB7661-70D2-4A41-9E82-0F32AE06A70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADCB7661-70D2-4A41-9E82-0F32AE06A70B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADCB7661-70D2-4A41-9E82-0F32AE06A70B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16B8197-0065-402A-A4C0-CAE9D85194D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16B8197-0065-402A-A4C0-CAE9D85194D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16B8197-0065-402A-A4C0-CAE9D85194D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16B8197-0065-402A-A4C0-CAE9D85194D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

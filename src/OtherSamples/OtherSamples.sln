@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_210906_Autofac", "_210906_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_210917_SerilogDemo", "_210917_SerilogDemo\_210917_SerilogDemo.csproj", "{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_211125_ConsoleDisableInput", "_211125_ConsoleDisableInput\_211125_ConsoleDisableInput.csproj", "{6EE41CED-7F72-4E68-8E7F-16C169F73B39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D04620C-F1A6-45E1-8AB3-7D6E09A030C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE41CED-7F72-4E68-8E7F-16C169F73B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE41CED-7F72-4E68-8E7F-16C169F73B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE41CED-7F72-4E68-8E7F-16C169F73B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE41CED-7F72-4E68-8E7F-16C169F73B39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

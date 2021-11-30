@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_210917_SerilogDemo", "_210
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_211125_ConsoleDisableInput", "_211125_ConsoleDisableInput\_211125_ConsoleDisableInput.csproj", "{6EE41CED-7F72-4E68-8E7F-16C169F73B39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_211130_LinqDynamic", "_211130_LinqDynamic\_211130_LinqDynamic.csproj", "{7F68BE87-08CB-47C9-9B66-4A6459A9A743}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{6EE41CED-7F72-4E68-8E7F-16C169F73B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EE41CED-7F72-4E68-8E7F-16C169F73B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EE41CED-7F72-4E68-8E7F-16C169F73B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F68BE87-08CB-47C9-9B66-4A6459A9A743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F68BE87-08CB-47C9-9B66-4A6459A9A743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F68BE87-08CB-47C9-9B66-4A6459A9A743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F68BE87-08CB-47C9-9B66-4A6459A9A743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

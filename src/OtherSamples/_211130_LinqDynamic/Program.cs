@@ -22,22 +22,32 @@ freeSql.Insert(
     .ExecuteAffrows();
 
 
-var topic1 = freeSql.Select<Topic>()
+var sel1 = freeSql.Select<Topic>()
     .AsQueryable()
     .Where(t => t.Clicks > 0)
     .Where(t => t.Title.StartsWith("new topic"))
-    .Select(t => new { title = t.Title, clicks = t.Clicks })
-    .First();
+    .Select(t => new { title = t.Title, clicks = t.Clicks });
 
-var topic2 = freeSql.Select<Topic>()
+var sel2 = freeSql.Select<Topic>()
     .AsQueryable()
     .Where("t => t.Clicks > 0")
     .Where("t => t.Title.StartsWith(\"new topic\")")
-    .Select("new{ Title as title, Clicks as clicks }")
-    .First();
+    .Select("new{ Title as title, Clicks as clicks }");
+
+var topic1 = sel1.First();
+var topic2 = sel2.First();
 
 Console.WriteLine("default: " + JsonSerializer.Serialize(topic1));
 Console.WriteLine("dynamic: " + JsonSerializer.Serialize(topic2));
+
+foreach (var item in sel1)
+{
+    Console.WriteLine("default: " + JsonSerializer.Serialize(item));
+}
+foreach (var item in sel2)
+{
+    Console.WriteLine("default: " + JsonSerializer.Serialize(item));
+}
 
 public class Topic
 {
